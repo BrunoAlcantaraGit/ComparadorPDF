@@ -1,0 +1,115 @@
+Linhas presentes no PDF1 e ausentes no PDF2:
+
+- 1 
+- 2 
+-  A  mensagem  DOCCOB–Documento  de  Cobrança  é gerada  pelas  Transportadoras  para  transmissão  às  empresas  Clientes 
+- (Contratantes do frete ou Embarcadoras), visando fornecer uma cópia eletrônica da Nota Fiscal/Fatura de serviço emitida 
+- para a cobrança dos serviços de transporte de carga prestados à Embarcadora. 
+-  Essa  cobrança  deverá  seguir  os  critérios  acordados  entre  as  partes  em  relação  ao  período  de  cobrança  (semanal, 
+- quinzenal, etc.) e em relação ao que cobrar ou não (entregas completas, parciais, etc.). 
+-  A geração/gravação dos registros que compõem esse arquivo pode ser Condicional, ou seja, o registro pode ou não 
+- ser gerado em função de uma determinada situação, ou Mandatório, nesse caso, o registro deve ser sempre gerado, 
+- pois a falta desse registro irá caracterizar erro de formatação do arquivo. 
+-  Os registros que compõem esse arquivo são de tamanho fixo, todos devem possuir o mesmo tamanho conforme especificado 
+- no lay-out. Caso haja alguma dificuldade para gerar os registros com essa característica, recomendamos gravar um 
+- caractere, por exemplo, ‘.’ (ponto) ou ‘*’ (asterisco) na última posição do registro. 
+-  Respeitar o número de ocorrências definido para cada registro, isso vale tanto para a geração do arquivo, como 
+- também para a leitura. A não observação dessa definição poderá acarretar erro no processamento do arquivo. 
+- - A = Indica que o campo é alfanumérico. 
+- Seu conteúdo deve ser alinhado à esquerda e completado até seu tamanho máximo com espaços à direita. 
+- - N = Indica que o campo é numérico. 
+- Seu conteúdo deve ser alinhado à direita e completado até seu tamanho máximo com zeros à esquerda. 
+- - 9 = O Número após a letra, indica o tamanho total/máximo ocupado pelo campo. 
+- Caso o campo possua alguma casa decimal, por exemplo, campo de valor, a representação será: 9,2, onde 9 
+- é o número de casas inteiras e 2 o número de casas decimais, o tamanho total do campo é de 11 posições. 
+- NÃO há representação explícita do ponto/vírgula decimal. 
+- Exemplos: A 35, campo alfanumérico de 35 posições; 
+-   N 6, campo numérico de 6 posições e 
+- Quando não houver dado/conteúdo para o preenchimento de um campo qualquer, verificar qual é a sintaxe do campo e 
+- preenchê-lo totalmente com zeros se for numérico ou totalmente com espaços se for alfanumérico. 
+- 3 
+- 4 
+-  OCCURS = 1   (P/ CADA ARQUIVO GERADO) 
+- 4.  DATA N 6 74 M DDMMAA (ESTA DATA É DE USO DA APLICAÇÃO 
+- EDI, NÃO SENDO NECESSÁRIA ESTAR NO 
+- FORMATO DDMMAAAA). 
+- OBS: FORMATO   A = ALFANUMÉRICOS (CARACTERES MAIÚSCULOS) 
+-       N = NUMÉRICOS 
+-      STATUS    M = PREENCHIMENTO OBRIGATÓRIO (SE O REGISTRO FOR GERADO/PREENCHIDO) 
+-       C = PREENCHIMENTO CONDICIONAL (PODE OU NÃO SER PREENCHIDO). 
+- 5 
+-  OCCURS = 200 (P/ CADA REG. "000") 
+- 6 
+-  OCCURS = 1 (P/ CADA REG. "350") 
+- 2.  C.G.C. N 14 04 M  
+- 7 
+-  OCCURS = 100 (P/ CADA REG. "351") 
+- 8 
+- REGISTRO: D C O  - DOCUMENTO DE COBRANÇA - CONTINUAÇÃO TAMANHO DO REGISTRO: 170 (DDF = 340) 
+-  OCCURS = 100 (P/ CADA REG. "351") 
+- 19.  AÇÃO DO DOCUMENTO A 1 167 C I = INCLUIR; 
+- OBS.: PARA AS TRANSPORTADORAS QUE PRESTAM SERVIÇO PARA A  DDF,  SERÁ NECESSÁRIA A  GRAVAÇÃO DE DADOS  ESPECÍFICOS  DESTE 
+-        EMBARCADOR A PARTIR DA  POSIÇÃO 171  COM TAMANHO TOTAL DE  170 POSIÇÕES,  CONSEQUENTEMENTE,  QUANDO ESTE  REGISTRO 
+-        FOR GERADO PARA A DDF O MESMO TERÁ O TAMANHO DE 340 BYTES. 
+- 9 
+-  OCCURS = 100 (P/ CADA REG. "352") 
+- 5.  FILLER A 140 31 C PREENCHER COM BRANCOS 
+- 10 
+- 11 
+-  OCCURS = 1  (P/ CADA REG. "350") 
+
+
+Linhas presentes no PDF2 e ausentes no PDF1:
+
+- Lay-out do Arquivo de Cobrança – DOCCOB         Página: 1 
+- Lay-out do Arquivo de Cobrança – DOCCOB         Página: 2 
+-  A mensagem DOCCOB–Documento de Cobrança é gerada pelas Transportadoras para transmissão às empresas Clientes (Contratantes 
+- do frete ou Embarcadoras), visando fornecer uma cópia eletrônica da Nota Fiscal/Fatura de serviço emitida para a cobrança dos 
+- serviços de transporte de carga prestados à Embarcadora. 
+-  Essa cobrança deverá seguir os critérios acordados entre as partes em relação ao período de cobrança (semanal, quinzenal, 
+- etc.) e em relação ao que cobrar ou não (entregas completas, parciais, etc.). 
+-  A geração/gravação dos registros que compõem esse arquivo pode ser Condicional, ou seja, o registro pode ou não ser gerado 
+- em função de uma determinada situação, ou Mandatório, nesse caso, o registro deve ser sempre gerado, pois a falta desse 
+- registro irá caracterizar erro de formatação do arquivo. 
+-  Os registros que compõem esse arquivo são de tamanho fixo, todos devem possuir o mesmo tamanho conforme especificado no 
+- lay-out. Caso haja alguma dificuldade para gerar os registros com essa característica, recomendamos gravar um caractere, 
+- por exemplo, ‘.’ (ponto) ou ‘*’ (asterisco) na última posição do registro. 
+-  Respeitar o número de ocorrências definido para cada registro, isso vale tanto para a geração do arquivo, como também para 
+- a leitura. A não observação dessa definição poderá acarretar erro no processamento do arquivo. 
+- - A = Campo alfanumérico, o conteúdo deve ser alinhado à esquerda e com espaços a direita até o tamanho máximo. 
+- - N = Campo numérico, conteúdo deve ser alinhado à direita e completado até o tamanho máximo com zeros à esquerda. 
+- - 9 = O Número após a letra, indica o tamanho total/máximo ocupado pelo campo. Caso o campo possua alguma casa decimal, 
+- por exemplo, campo de valor, a representação será: 9,2, onde 9 é o número de casas inteiras e 2 o número de casas decimais, 
+- o tamanho total do campo é de 11 posições. NÃO há representação explícita do ponto/vírgula decimal. Exemplos: A 
+- 35, campo alfanumérico de 35 posições; 
+-  N 6, campo numérico de 6 posições e 
+- Quando não houver dado/conteúdo para o preenchimento de um campo qualquer, verificar qual é a sintaxe do campo e preenchê-lo 
+- totalmente com zeros se for numérico ou totalmente com espaços se for alfanumérico. 
+- Lay-out do Arquivo de Cobrança – DOCCOB         Página: 3 
+-  OCORRE = 1   (P/ CADA ARQUIVO GERADO) 
+- 4.  DATA N 6 74 M DDMMAA (ESTA DATA É DE USO DA APLICAÇÃO EDI, 
+- NÃO SENDO NECESSÁRIA ESTAR NO FORMATO 
+- DDMMAAAA). 
+-  OCORRE = 200 (P/ CADA REG. "000") 
+- Lay-out do Arquivo de Cobrança – DOCCOB         Página: 4 
+-  OCORRE = 1 (P/ CADA REG. "350") 
+- 2.  C.G.C. N 14 04 M SEM EDIÇÃO (PONTOS E HÍFEN) 
+- Lay-out do Arquivo de Cobrança – DOCCOB         Página: 5 
+-  OCORRE = 100 (P/ CADA REG. "351") 
+- 19.  AÇÃO DO DOCUMENTO A 1 167 C 
+- I = INCLUIR; 
+- OBS.: PARA A DANZAS (ex-DDF), DEVE HAVER A GRAVAÇÃO DE DADOS ESPECÍFICOS DESSA EMPRESA A PARTIR DA POSIÇÃO 171 COM TAMANHO 
+- DE 170 BYTES, O QUE RESULTA EM UM REGISTRO COM TAMANHO TOTAL DE 340 POSIÇÕES (BYTES). 
+- Lay-out do Arquivo de Cobrança – DOCCOB         Página: 6 
+-  OCORRE = 100 (P/ CADA REG. "352") 
+- 5.  VALOR DO FRETE (*) N 13,2 31 C  
+- 6.  DATA DE EMISSÃO DO CONHECIMENTO (*) N 8 46 C DDMMAAAA 
+- 7.  CGC DO REMETENTE – EMISSOR DA NF (*) N 14 54 C SEM EDIÇÃO (PONTOS E HÍFEN) 
+- 8.  CGC DO DESTINATÁRIO DA NF (*) N 14 68 C SEM EDIÇÃO (PONTOS E HÍFEN) 
+- 9.  CGC DO EMISSOR DO CONHECIMENTO (**) N 14 82 C SEM EDIÇÃO (PONTOS E HÍFEN) 
+- 10.  FILLER A 75 96 C PREENCHER COM BRANCOS 
+- (*) ALTERAÇÃO DE 02/2000 – INCLUSÃO DE NOVOS CAMPOS A PEDIDO DA REVLON E CODE – USO LIBERADO CASO HAJA NECESSIDADE. 
+- (**) ALTERAÇÃO DE 08/2002 – INCLUSÃO DE NOVO CAMPO A PEDIDO DA TEXACO – USO LIBERADO CASO HAJA NECESSIDADE. 
+- Lay-out do Arquivo de Cobrança – DOCCOB         Página: 7 
+- OBS.: REGISTRO OPCIONAL, PODE OU NÃO SER UTILIZADO. 
+-  OCORRE = 1  (P/ CADA REG. "350") 
